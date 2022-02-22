@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pixalion": {
+      "hosting": {
+        "PIXALIONE-test": [
+          "pixalion"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pixalion"
+  }
+}
