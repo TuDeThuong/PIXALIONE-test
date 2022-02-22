@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginData } from 'src/app/core/interfaces/login-data.interface';
+import { Component, NgZone, OnInit } from '@angular/core';
+
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -9,17 +8,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./register-page.component.css'],
 })
 export class RegisterPageComponent implements OnInit {
-  constructor(
-    private readonly authService: AuthService,
-    private readonly router: Router
-  ) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {}
-
-  register(data: LoginData) {
-    this.authService
-      .register(data)
-      .then(() => this.router.navigate(['/']))
-      .catch((e) => console.log(e.message));
-  }
 }

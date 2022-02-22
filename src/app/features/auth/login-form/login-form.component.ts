@@ -35,3 +35,20 @@ export class LoginFormComponent implements OnInit {
     this.formData.emit(this.form.value);
   }
 }
+// constructor(private auth: Auth) {}
+
+//   login({ email, password }: LoginData) {
+//     return signInWithEmailAndPassword(this.auth, email, password);
+//   }
+
+//   loginWithGoogle() {
+//     return signInWithPopup(this.auth, new GoogleAuthProvider());
+//   }
+
+//   register({ email, password }: LoginData) {
+//     return createUserWithEmailAndPassword(this.auth, email, password);
+//   }
+
+//   logout() {
+//     return signOut(this.auth);
+//   }

@@ -9,6 +9,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { DataService } from '../dashboard/shared/services/course.service';
+import {
+  ScreenTrackingService,
+  UserTrackingService,
+} from '@angular/fire/analytics';
 
 @NgModule({
   declarations: [LoginFormComponent, LoginPageComponent, RegisterPageComponent],
@@ -19,6 +29,15 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+  ],
+  providers: [
+    AuthService,
+    DataService,
+    ScreenTrackingService,
+    UserTrackingService,
   ],
 })
 export class AuthModule {}

@@ -1,0 +1,57 @@
+<section>
+  <h1 i18n="@@addDataPoste2">Add Course</h1>
+
+  <div class="container">
+    <div class="container-form">
+      <input matInput type="text" [(ngModel)]="name" placeholder="name" />
+    </div>
+
+    <div class="container-form">
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="desciption"
+        placeholder="desciption"
+      />
+    </div>
+
+    <div class="container-form">
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="category"
+        placeholder="category"
+      />
+    </div>
+
+    <div class="container-form">
+      <input matInput type="text" [(ngModel)]="subject" placeholder="subject" />
+    </div>
+
+    <div class="container-form">
+      <input matInput type="number" [(ngModel)]="time" placeholder="time" />
+    </div>
+    <div class="container-form">
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="numberStudent"
+        placeholder="numberStudent"
+      />
+    </div>
+  </div>
+
+  <div class="button">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="Create_course()"
+      [disabled]="
+        !name || !desciption || !time || !subject || !category || !numberStudent
+      "
+      i18n="@@createData2"
+    >
+      Create data
+    </button>
+  </div>
+</section>

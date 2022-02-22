@@ -1,0 +1,47 @@
+button {
+  padding: 0.5em;
+  cursor: pointer;
+  margin-bottom: 0.4rem;
+  padding: 10px 20px;
+  border-radius: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: color-dark;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  width: auto;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: space-between;
+  min-height: 87vh;
+  position: relative;
+}
+section .add-button {
+  width: 20%;
+  margin: 2rem 0 2rem 0;
+}
+section h1 {
+  position: relative;
+  color: color-dark;
+  letter-spacing: 1px;
+  margin-bottom: 20px !important;
+  text-align: center;
+}
+section .container {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+mat-card {
+  display: inline-block;
+}

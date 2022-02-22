@@ -10,11 +10,11 @@
     </div>
     <div class="form-container">
       <h1>Welcome to app Login</h1>
-      <button class="mat-raised-button" (click)="loginWithGoogle()">
+      <button class="mat-raised-button" (click)="authService.loginWithGoogle()">
         Sign In with Google
       </button>
       <h5>Or sign in with your email</h5>
-      <app-login-form (formData)="login($event)"></app-login-form>
+      <app-login-form (formData)="authService.login($event)"></app-login-form>
     </div>
   </div>
 </div>

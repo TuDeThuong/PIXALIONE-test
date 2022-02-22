@@ -3,7 +3,9 @@
     <div class="form-container">
       <h1>Welcome to app Register</h1>
       <h5>Register with your email</h5>
-      <app-login-form (formData)="register($event)"></app-login-form>
+      <app-login-form
+        (formData)="authService.register($event)"
+      ></app-login-form>
     </div>
     <div class="text-container">
       <h1>Hey Buddy</h1>
