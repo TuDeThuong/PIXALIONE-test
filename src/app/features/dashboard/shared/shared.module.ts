@@ -12,6 +12,16 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { DataService } from './services/course.service';
+import {
+  ScreenTrackingService,
+  UserTrackingService,
+} from '@angular/fire/analytics';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
@@ -26,6 +36,15 @@ import { RouterModule } from '@angular/router';
     MatSidenavModule,
     MatListModule,
     RouterModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+  ],
+  providers: [
+    AuthService,
+    DataService,
+    ScreenTrackingService,
+    UserTrackingService,
   ],
   exports: [HeaderComponent, FooterComponent, SidebarComponent],
 })

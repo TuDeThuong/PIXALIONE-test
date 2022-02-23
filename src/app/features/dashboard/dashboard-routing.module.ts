@@ -5,6 +5,8 @@ import { AddCourseComponent } from './modules/add-course/add-course.component';
 import { EditCourseComponent } from './modules/edit-course/edit-course.component';
 import { MainComponent } from './modules/main/main.component';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { AdminGuard } from './shared/services/admin.guard';
+import { CanReadGuard } from './shared/services/can-read.guard';
 
 const routes: Routes = [
   {
@@ -14,6 +16,7 @@ const routes: Routes = [
       {
         path: '',
         component: MainComponent,
+        canActivate: [CanReadGuard],
       },
       {
         path: 'profile',
@@ -22,10 +25,12 @@ const routes: Routes = [
       {
         path: 'add-course',
         component: AddCourseComponent,
+        canActivate: [AdminGuard],
       },
       {
         path: 'edit-course',
         component: EditCourseComponent,
+        canActivate: [AdminGuard],
       },
     ],
   },

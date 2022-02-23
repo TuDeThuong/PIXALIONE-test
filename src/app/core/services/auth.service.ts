@@ -105,6 +105,14 @@ export class AuthService {
     const userData: User = {
       uid: user.uid,
       email: user.email,
+      roles: {
+        subcriber: true,
+      },
+      firstName: '',
+      lastName: '',
+      nickName: '',
+      birthDay: 0,
+      gender: 'undefined',
     };
     return userRef.set(userData, {
       merge: true,
@@ -117,5 +125,27 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     });
+  }
+
+  public checkAuthorization(user: User, allowedRoles: string[]): boolean {
+    if (!user) return false;
+    for (const role of allowedRoles) {
+      if (user.roles[role]) {
+        return true;
+      }
+    }
+    return false;
+  }
+  canRead(user: User): boolean {
+    const allowed = ['admin', 'subcriber'];
+    return this.checkAuthorization(user, allowed);
+  }
+  canEdit(user: User): boolean {
+    const allowed = ['admin'];
+    return this.checkAuthorization(user, allowed);
+  }
+  canDelete(user: User): boolean {
+    const allowed = ['admin'];
+    return this.checkAuthorization(user, allowed);
   }
 }

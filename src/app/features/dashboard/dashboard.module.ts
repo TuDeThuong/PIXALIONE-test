@@ -19,9 +19,12 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { AdminGuard } from './shared/services/admin.guard';
+import { CanReadGuard } from './shared/services/can-read.guard';
+import { ProfileComponent } from './modules/profile/profile.component';
 
 @NgModule({
-  declarations: [AddCourseComponent, EditCourseComponent],
+  declarations: [AddCourseComponent, EditCourseComponent, ProfileComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -39,6 +42,8 @@ import { MatCardModule } from '@angular/material/card';
     DataService,
     ScreenTrackingService,
     UserTrackingService,
+    AdminGuard,
+    CanReadGuard,
   ],
 })
 export class DashboardModule {}
