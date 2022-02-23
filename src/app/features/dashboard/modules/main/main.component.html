@@ -1,1 +1,33 @@
-<p>main works!</p>
+<mat-card-title>
+  <strong>List course</strong>
+</mat-card-title>
+<section>
+  <div class="container">
+    <div cols="3" rowHeight="3:1" class="container-form">
+      <mat-card *ngFor="let item of course">
+        <mat-card-content> Name of course: {{ item.name }} </mat-card-content>
+
+        <mat-card-content> time:{{ item.time }} </mat-card-content>
+
+        <div class="data-button">
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="
+              openDialog(
+                item.name,
+                item.time,
+                item.desciption,
+                item.category,
+                item.subject,
+                item.numberStudent
+              )
+            "
+          >
+            Get Details
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</section>

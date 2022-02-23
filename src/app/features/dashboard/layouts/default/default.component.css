@@ -12,4 +12,5 @@ mat-drawer-container {
 
 mat-drawer-content {
   padding: 20px;
+  padding-left: 10px !important;
 }

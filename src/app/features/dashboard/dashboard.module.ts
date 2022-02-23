@@ -22,9 +22,18 @@ import { MatCardModule } from '@angular/material/card';
 import { AdminGuard } from './shared/services/admin.guard';
 import { CanReadGuard } from './shared/services/can-read.guard';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { MainDialogComponent } from './modules/main/main-dialog/main-dialog.component';
+import { MainComponent } from './modules/main/main.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [AddCourseComponent, EditCourseComponent, ProfileComponent],
+  declarations: [
+    AddCourseComponent,
+    EditCourseComponent,
+    ProfileComponent,
+    MainDialogComponent,
+    MainComponent,
+  ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -36,6 +45,7 @@ import { ProfileComponent } from './modules/profile/profile.component';
     AngularFirestoreModule,
     MatGridListModule,
     MatCardModule,
+    MatDialogModule,
   ],
   providers: [
     AuthService,

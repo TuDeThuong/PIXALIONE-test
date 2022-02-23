@@ -43,7 +43,6 @@ export class ProfileComponent implements OnInit {
           gender: e.payload.doc.data()['gender'],
         };
       });
-      console.log(this.profile);
     });
   }
 

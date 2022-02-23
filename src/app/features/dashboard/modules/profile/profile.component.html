@@ -1,27 +1,12 @@
 <mat-grid-list cols="3" rowHeight="3:1" *ngFor="let user of profile">
   <div *ngIf="authService.userData.uid == user.id">
     <mat-card *ngIf="!authService.userData.isedit; else elseBlock">
-      <mat-card-title>
-        id: <strong>{{ user.id }}</strong>
-      </mat-card-title>
-      <mat-card-title>
-        Email: <strong>{{ user.email }}</strong>
-      </mat-card-title>
-      <mat-card-title>
-        First Name: <strong>{{ user.firstName }}</strong>
-      </mat-card-title>
-      <mat-card-title>
-        Last Name: <strong>{{ user.lastName }}</strong>
-      </mat-card-title>
-      <mat-card-title>
-        Nick Name: <strong>{{ user.nickName }}</strong>
-      </mat-card-title>
-      <mat-card-title>
-        Birth Day: <strong>{{ user.birthDay }}</strong>
-      </mat-card-title>
-      <mat-card-title>
-        Gender: <strong>{{ user.gender }}</strong>
-      </mat-card-title>
+      <mat-card-title> Email: {{ user.email }} </mat-card-title>
+      <mat-card-title> First Name: {{ user.firstName }} </mat-card-title>
+      <mat-card-title> Last Name: {{ user.lastName }} </mat-card-title>
+      <mat-card-title> Nick Name: {{ user.nickName }} </mat-card-title>
+      <mat-card-title> Birth Day: {{ user.birthDay }} </mat-card-title>
+      <mat-card-title> Gender: {{ user.gender }} </mat-card-title>
       <button
         mat-raised-button
         (click)="Edit_profile(authService.userData)"
@@ -36,23 +21,23 @@
       <mat-card-title> Edit data </mat-card-title>
 
       <mat-card-content>
-        <input type="text" [(ngModel)]="authService.userData.edit_firstName" />
+        <input type="text" [(ngModel)]="user.edit_firstName" />
       </mat-card-content>
 
       <mat-card-content>
-        <input type="text" [(ngModel)]="authService.userData.edit_lastName" />
+        <input type="text" [(ngModel)]="user.edit_lastName" />
       </mat-card-content>
 
       <mat-card-content>
-        <input type="text" [(ngModel)]="authService.userData.edit_nickName" />
+        <input type="text" [(ngModel)]="user.edit_nickName" />
       </mat-card-content>
 
       <mat-card-content>
-        <input type="date" [(ngModel)]="authService.userData.edit_birthDay" />
+        <input type="date" [(ngModel)]="user.edit_birthDay" />
       </mat-card-content>
 
       <mat-card-content>
-        <input type="text" [(ngModel)]="authService.userData.edit_gender" />
+        <input type="text" [(ngModel)]="user.edit_gender" />
       </mat-card-content>
     </mat-card>
 
