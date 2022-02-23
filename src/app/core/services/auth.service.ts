@@ -63,12 +63,12 @@ export class AuthService {
   // Sign up with email/password
   register({ email, password }: LoginData) {
     return this.afAuth
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['/']);
+          this.SetUserData(result.user);
         });
-        this.SetUserData(result.user);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -108,11 +108,11 @@ export class AuthService {
       roles: {
         subcriber: true,
       },
-      firstName: '',
-      lastName: '',
-      nickName: '',
-      birthDay: 0,
-      gender: 'undefined',
+      firstName: user.firstName,
+      lastName: user.lastName,
+      nickName: user.nickName,
+      birthDay: user.birthDay,
+      gender: user.gender,
     };
     return userRef.set(userData, {
       merge: true,

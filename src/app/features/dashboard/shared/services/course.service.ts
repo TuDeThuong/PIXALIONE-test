@@ -18,6 +18,11 @@ export class DataService {
     return this.fireservices.collection('course').snapshotChanges();
   }
 
+  //get data with Id from firebase
+  get_data_coursebyid(id) {
+    return this.fireservices.collection('books').doc(id).get();
+  }
+
   //update data to firebase for poste
 
   update_course(recordid, record) {

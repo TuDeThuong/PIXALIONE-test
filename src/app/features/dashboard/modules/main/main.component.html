@@ -2,9 +2,15 @@
   <strong>List course</strong>
 </mat-card-title>
 <section>
+  <input
+    #query
+    placeholder="Search..."
+    (keyup)="filter(query.value)"
+    type="text"
+  />
   <div class="container">
     <div cols="3" rowHeight="3:1" class="container-form">
-      <mat-card *ngFor="let item of course">
+      <mat-card *ngFor="let item of filteredcourse">
         <mat-card-content> Name of course: {{ item.name }} </mat-card-content>
 
         <mat-card-content> time:{{ item.time }} </mat-card-content>
