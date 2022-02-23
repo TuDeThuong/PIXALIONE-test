@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthService } from 'src/app/core/services/auth.service';
 
@@ -9,17 +10,30 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class ProfileComponent implements OnInit {
   profile: any;
+  userData: any; // Save logged in user data
 
   constructor(
     public authService: AuthService,
-    public fireservices: AngularFirestore
-  ) {}
+    public fireservices: AngularFirestore,
+    private afAuth: AngularFireAuth // Inject Firebase auth service
+  ) {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.userData = user;
+        localStorage.setItem('user', JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem('user'));
+      } else {
+        localStorage.setItem('user', null);
+        JSON.parse(localStorage.getItem('user'));
+      }
+    });
+  }
 
   ngOnInit() {
     this.get_data_profile().subscribe((data) => {
       this.profile = data.map((e) => {
         return {
-          id: this.authService.userData.uid,
+          id: e.payload.doc.id,
           isedit: false,
           email: e.payload.doc.data()['email'],
           firstName: e.payload.doc.data()['firstName'],

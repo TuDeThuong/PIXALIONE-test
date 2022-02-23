@@ -1,31 +1,36 @@
 <mat-grid-list cols="3" rowHeight="3:1" *ngFor="let user of profile">
-  <mat-card *ngIf="!authService.userData.isedit; else elseBlock">
-    <mat-card-title>
-      Email: <strong>{{ user.email }}</strong> </mat-card-title
-    ><mat-card-title>
-      First Name: <strong>{{ user.firstName }}</strong>
-    </mat-card-title>
-    <mat-card-title>
-      Last Name: <strong>{{ user.lastName }}</strong>
-    </mat-card-title>
-    <mat-card-title>
-      Nick Name: <strong>{{ user.nickName }}</strong>
-    </mat-card-title>
-    <mat-card-title>
-      Birth Day: <strong>{{ user.birthDay }}</strong>
-    </mat-card-title>
-    <mat-card-title>
-      Gender: <strong>{{ user.gender }}</strong>
-    </mat-card-title>
-
-    <button
-      mat-raised-button
-      (click)="Edit_profile(authService.userData)"
-      color="accent"
-    >
-      Edit
-    </button>
-  </mat-card>
+  <div *ngIf="authService.userData.uid == user.id">
+    <mat-card *ngIf="!authService.userData.isedit; else elseBlock">
+      <mat-card-title>
+        id: <strong>{{ user.id }}</strong>
+      </mat-card-title>
+      <mat-card-title>
+        Email: <strong>{{ user.email }}</strong>
+      </mat-card-title>
+      <mat-card-title>
+        First Name: <strong>{{ user.firstName }}</strong>
+      </mat-card-title>
+      <mat-card-title>
+        Last Name: <strong>{{ user.lastName }}</strong>
+      </mat-card-title>
+      <mat-card-title>
+        Nick Name: <strong>{{ user.nickName }}</strong>
+      </mat-card-title>
+      <mat-card-title>
+        Birth Day: <strong>{{ user.birthDay }}</strong>
+      </mat-card-title>
+      <mat-card-title>
+        Gender: <strong>{{ user.gender }}</strong>
+      </mat-card-title>
+      <button
+        mat-raised-button
+        (click)="Edit_profile(authService.userData)"
+        color="accent"
+      >
+        Edit
+      </button>
+    </mat-card>
+  </div>
   <ng-template #elseBlock>
     <mat-card>
       <mat-card-title> Edit data </mat-card-title>
