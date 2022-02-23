@@ -9,11 +9,12 @@
       <button mat-button routerLink="/register">Sign up</button>
     </div>
     <div class="form-container">
-      <h1>Welcome to app Login</h1>
+      <h1>Welcome to Login</h1>
       <button class="mat-raised-button" (click)="authService.loginWithGoogle()">
         Sign In with Google
       </button>
       <h5>Or sign in with your email</h5>
+      <hr />
       <app-login-form (formData)="authService.login($event)"></app-login-form>
     </div>
   </div>

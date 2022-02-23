@@ -51,21 +51,20 @@
       <mat-card-content>
         <input type="text" [(ngModel)]="authService.userData.edit_gender" />
       </mat-card-content>
+      <button
+        mat-raised-button
+        (click)="authService.userData.isedit = false"
+        color="accent"
+      >
+        Cancel
+      </button>
+      <button
+        mat-raised-button
+        (click)="Updateprofile(authService.userData)"
+        color="accent"
+      >
+        Update
+      </button>
     </mat-card>
-
-    <button
-      mat-raised-button
-      (click)="authService.userData.isedit = false"
-      color="accent"
-    >
-      Cancel
-    </button>
-    <button
-      mat-raised-button
-      (click)="Updateprofile(authService.userData)"
-      color="accent"
-    >
-      Update
-    </button>
   </ng-template>
 </mat-grid-list>

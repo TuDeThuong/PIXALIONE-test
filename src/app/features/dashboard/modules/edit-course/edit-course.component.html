@@ -32,7 +32,7 @@
       </mat-card-content>
 
       <mat-card-content>
-        <input type="text" [(ngModel)]="item.edit_desciption" />
+        <textarea type="text" [(ngModel)]="item.edit_desciption"></textarea>
       </mat-card-content>
 
       <mat-card-content>
@@ -49,13 +49,12 @@
       <mat-card-content>
         <input type="number" [(ngModel)]="item.edit_numberStudent" />
       </mat-card-content>
+      <button mat-raised-button (click)="item.isedit = false" color="accent">
+        Cancel
+      </button>
+      <button mat-raised-button (click)="Updaterecord2(item)" color="accent">
+        Update
+      </button>
     </mat-card>
-
-    <button mat-raised-button (click)="item.isedit = false" color="accent">
-      Cancel
-    </button>
-    <button mat-raised-button (click)="Updaterecord2(item)" color="accent">
-      Update
-    </button>
   </ng-template>
 </mat-grid-list>

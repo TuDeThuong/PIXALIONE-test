@@ -1,12 +1,17 @@
 button {
-  background-color: #5eccd6;
+  background-color: #e2b6cf;
   border-radius: 20px;
   color: #fff;
   padding: 0 50px;
 }
 
+h4 {
+  color: #e2b6cf;
+  margin-bottom: 0%;
+}
+
 mat-label {
-  color: #5eccd6;
+  color: #e2b6cf;
 }
 
 form {
@@ -20,4 +25,17 @@ form {
 
 mat-form-field {
   width: 100%;
+}
+
+.container-form input {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 35px;
+  border: 1px solid rgba(186, 186, 186, 0.5) !important;
+  border-right: 1px solid rgba(174, 174, 174, 0.2) !important;
+  border-bottom: 1px solid rgba(56, 56, 56, 0.2) !important;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: black;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }

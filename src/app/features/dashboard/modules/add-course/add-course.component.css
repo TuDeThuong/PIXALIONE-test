@@ -40,3 +40,15 @@ section .container-form input {
   color: black;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
+section .container-form textarea {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 35px;
+  border: 1px solid rgba(186, 186, 186, 0.5) !important;
+  border-right: 1px solid rgba(174, 174, 174, 0.2) !important;
+  border-bottom: 1px solid rgba(56, 56, 56, 0.2) !important;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: black;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
