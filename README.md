@@ -3,10 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
 
 ## Set up angular-material
-run ng add @angular/material
+run `ng add @angular/material`
 
 ## Set up AngularFire
-run ng add @angular/fire
+run `ng add @angular/fire`
 
 ## Development server
 
