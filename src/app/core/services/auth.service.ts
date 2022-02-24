@@ -53,7 +53,7 @@ export class AuthService {
         this.ngZone.run(() => {
           this.router.navigate(['/dashboard']);
         });
-        this.SetUserData(result.user);
+        this.GetUserData(result.user);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -108,15 +108,22 @@ export class AuthService {
       roles: {
         subcriber: true,
       },
-      firstName: user.firstName,
-      lastName: user.lastName,
-      nickName: user.nickName,
-      birthDay: user.birthDay,
-      gender: user.gender,
+      firstName: '',
+      lastName: '',
+      nickName: '',
+      birthDay: 0,
+      gender: '',
     };
     return userRef.set(userData, {
       merge: true,
     });
+  }
+
+  GetUserData(user) {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `users/${user.uid}`
+    );
+    return this.afs.collection('users').doc(user.uid).get();
   }
 
   // Sign out
