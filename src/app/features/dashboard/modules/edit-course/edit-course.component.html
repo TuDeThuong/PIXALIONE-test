@@ -1,60 +1,74 @@
 <h1>Edit Data for Course</h1>
-<mat-grid-list cols="3" rowHeight="3:1" *ngFor="let item of course">
-  <mat-card *ngIf="!item.isedit; else elseBlock">
-    <mat-card-title> Course </mat-card-title>
+<section>
+  <input
+    #query
+    placeholder="Search..."
+    (keyup)="filter(query.value)"
+    type="text"
+  />
 
-    <mat-card-content> name: {{ item.name }} </mat-card-content>
+  <mat-grid-list cols="2" rowHeight="2:1" *ngFor="let item of filteredcourse">
+    <mat-card *ngIf="!item.isedit; else elseBlock">
+      <mat-card-title> Course </mat-card-title>
 
-    <mat-card-content> desciption: {{ item.desciption }} </mat-card-content>
+      <mat-card-content> name: {{ item.name }} </mat-card-content>
 
-    <mat-card-content> category: {{ item.category }} </mat-card-content>
+      <mat-card-content> desciption: {{ item.desciption }} </mat-card-content>
 
-    <mat-card-content> subject: {{ item.subject }} </mat-card-content>
+      <mat-card-content> category: {{ item.category }} </mat-card-content>
 
-    <mat-card-content> time: {{ item.time }} </mat-card-content>
-    <mat-card-content>
-      numberStudent: {{ item.numberStudent }}
-    </mat-card-content>
+      <mat-card-content> subject: {{ item.subject }} </mat-card-content>
 
-    <button mat-raised-button (click)="Edit_record2(item)" color="accent">
-      Edit
-    </button>
-    <button mat-raised-button (click)="delete_record2(item.id)" color="accent">
-      Delete
-    </button>
-  </mat-card>
-  <ng-template #elseBlock>
-    <mat-card>
-      <mat-card-title> Edit data </mat-card-title>
-
+      <mat-card-content> time: {{ item.time }} </mat-card-content>
       <mat-card-content>
-        <input type="text" [(ngModel)]="item.edit_name" />
+        numberStudent: {{ item.numberStudent }}
       </mat-card-content>
 
-      <mat-card-content>
-        <textarea type="text" [(ngModel)]="item.edit_desciption"></textarea>
-      </mat-card-content>
-
-      <mat-card-content>
-        <input type="text" [(ngModel)]="item.edit_category" />
-      </mat-card-content>
-
-      <mat-card-content>
-        <input type="text" [(ngModel)]="item.edit_subject" />
-      </mat-card-content>
-
-      <mat-card-content>
-        <input type="number" [(ngModel)]="item.edit_time" />
-      </mat-card-content>
-      <mat-card-content>
-        <input type="number" [(ngModel)]="item.edit_numberStudent" />
-      </mat-card-content>
-      <button mat-raised-button (click)="item.isedit = false" color="accent">
-        Cancel
+      <button mat-raised-button (click)="Edit_record2(item)" color="accent">
+        Edit
       </button>
-      <button mat-raised-button (click)="Updaterecord2(item)" color="accent">
-        Update
+      <button
+        mat-raised-button
+        (click)="delete_record2(item.id)"
+        color="accent"
+      >
+        Delete
       </button>
     </mat-card>
-  </ng-template>
-</mat-grid-list>
+
+    <ng-template #elseBlock>
+      <mat-card>
+        <mat-card-title> Edit data </mat-card-title>
+
+        <mat-card-content>
+          <input type="text" [(ngModel)]="item.edit_name" />
+        </mat-card-content>
+
+        <mat-card-content>
+          <textarea type="text" [(ngModel)]="item.edit_desciption"></textarea>
+        </mat-card-content>
+
+        <mat-card-content>
+          <input type="text" [(ngModel)]="item.edit_category" />
+        </mat-card-content>
+
+        <mat-card-content>
+          <input type="text" [(ngModel)]="item.edit_subject" />
+        </mat-card-content>
+
+        <mat-card-content>
+          <input type="number" [(ngModel)]="item.edit_time" />
+        </mat-card-content>
+        <mat-card-content>
+          <input type="number" [(ngModel)]="item.edit_numberStudent" />
+        </mat-card-content>
+        <button mat-raised-button (click)="item.isedit = false" color="accent">
+          Cancel
+        </button>
+        <button mat-raised-button (click)="Updaterecord2(item)" color="accent">
+          Update
+        </button>
+      </mat-card>
+    </ng-template>
+  </mat-grid-list>
+</section>

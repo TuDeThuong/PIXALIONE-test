@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/course.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edit-course',
@@ -8,12 +9,12 @@ import { DataService } from '../../shared/services/course.service';
 })
 export class EditCourseComponent implements OnInit {
   course: any;
+  filteredcourse: any;
+  sub: Subscription;
 
-  constructor(public dataService: DataService) {}
-
-  ngOnInit() {
-    this.dataService.get_data_course().subscribe((data) => {
-      this.course = data.map((e) => {
+  constructor(public dataService: DataService) {
+    this.sub = this.dataService.get_data_course().subscribe((data) => {
+      this.filteredcourse = this.course = data.map((e) => {
         return {
           id: e.payload.doc.id,
           isedit: false,
@@ -28,6 +29,8 @@ export class EditCourseComponent implements OnInit {
       console.log(this.course);
     });
   }
+
+  ngOnInit() {}
 
   Edit_record2(record) {
     record.isedit = true;
@@ -53,5 +56,19 @@ export class EditCourseComponent implements OnInit {
 
   delete_record2(record_id) {
     this.dataService.delete_data_course(record_id);
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
+  filter(queryString: string) {
+    if (queryString) {
+      this.filteredcourse = this.course.filter((p) =>
+        p.name.toLowerCase().includes(queryString.toLocaleLowerCase())
+      );
+    } else {
+      this.filteredcourse = this.course;
+    }
   }
 }

@@ -20,7 +20,7 @@ export class DataService {
 
   //get data with Id from firebase
   get_data_coursebyid(id) {
-    return this.fireservices.collection('books').doc(id).get();
+    return this.fireservices.collection('course').doc(id).get();
   }
 
   //update data to firebase for poste
